@@ -1,11 +1,12 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 import PostForm from '@/components/PostForm.vue';
 import PostList from '@/components/PostList.vue';
 
 let username = 'dasd';
 let count = ref(0);
 let isDarkTheme = ref(true);
+
 let posts = ref([]);
 
 function incrementCount(event) {
@@ -29,8 +30,8 @@ function deletePost(id) {
       <button @click="incrementCount" class="btn btn-primary">Counter: {{ count }}</button>
       <button @click="isDarkTheme = !isDarkTheme">переключить тему</button>
     </div>
-    <post-form class="p-2 mt-2" @post-added="addPost"/>
-    <post-list :posts="posts" @post-delete="deletePost"/>
+    <PostForm class="p-2 mt-2" @post-added="addPost"/>
+    <PostList :posts="posts" @post-delete="deletePost"/>
   </div>
 </template>
 
